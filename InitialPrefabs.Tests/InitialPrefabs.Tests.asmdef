@@ -1,0 +1,19 @@
+{
+    "name": "InitialPrefabs.Tests",
+    "references": [
+        "InitialPrefabs.Attributes",
+        "InitialPrefabs.Examples"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
