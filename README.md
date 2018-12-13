@@ -1,5 +1,5 @@
-# Unity Toolsets #
-The Unity Toolsets represents a collection of common attributes that can be helpful in discerning information to other 
+# Unity Editor Toolbag #
+The UnityEditorToolBag represents a collection of common attributes that can be helpful in discerning information to other 
 game developers and designers you're working with! Its main purpose is to display information within the editor on an 
 "on-need" basis, so use it whenver you need it and when things aren't obvious.
 
@@ -19,5 +19,16 @@ You've got a few ways to get this into your projects. You can:
 ### Submodule ###
 To clone this as a submodule:
 ```
-git submodule add https://github.com/InitialPrefabs/UnityToolsets.git <path-to-local-directory>
+git submodule addhttps://github.com/InitialPrefabs/UnityEditorToolBag.git <path-to-local-directory>
 ```
+
+## Usage ##
+The project uses assembly definition files. Why? Well unless the toolbag changes, then you don't really need to
+recompile it and assembly definition enforces that.
+
+Plus they help define project dependencies so you as the project/repo owner understand your dependencies. For more
+information about assembly definitions in Unity you can read them 
+[here](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html).
+
+Steps:
+1. Add the `InitialPrefabs.Attribute` assembly definition file to your own assembly definition as a reference.

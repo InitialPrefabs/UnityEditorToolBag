@@ -20,7 +20,7 @@ namespace InitialPrefabs.Attributes.Messages {
             this.messageLevel = (int)messageLevel;
         }
         
-        public MsgAttribute(string message, MessageLevel messageLevel, int height) : this (message, messageLevel) {
+        public MsgAttribute(string message, MessageLevel messageLevel, int height) : this(message, messageLevel) {
             this.height = height;
         }
     }
