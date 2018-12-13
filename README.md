@@ -19,7 +19,7 @@ You've got a few ways to get this into your projects. You can:
 ### Submodule ###
 To clone this as a submodule:
 ```
-git submodule addhttps://github.com/InitialPrefabs/UnityEditorToolBag.git <path-to-local-directory>
+git submodule add https://github.com/InitialPrefabs/UnityEditorToolBag.git <path-to-local-directory>
 ```
 
 ## Usage ##
@@ -32,3 +32,4 @@ information about assembly definitions in Unity you can read them
 
 Steps:
 1. Add the `InitialPrefabs.Attribute` assembly definition file to your own assembly definition as a reference.
+2. Use Attribute Tags wherever you like.
