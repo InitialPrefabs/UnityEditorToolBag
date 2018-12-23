@@ -8,6 +8,9 @@ namespace InitialPrefabs.Examples {
     /// </summary>
     public class MsgToggleExample : MonoBehaviour {
 
+        // NOTE: This is only used for getting a default property height in the editor.
+        public bool defaultBool;
+
         [MsgToggle("Should show when true!", MessageLevel.Info)]
         public bool toggleMsg = true;
 

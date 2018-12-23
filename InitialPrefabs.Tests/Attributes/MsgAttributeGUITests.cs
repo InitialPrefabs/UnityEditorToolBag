@@ -4,11 +4,6 @@ using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 
-using static NUnit.Framework.Assert;
-using static UnityEditor.EditorGUI;
-using static UnityEditor.EditorGUIUtility;
-using static UnityEngine.Object;
-
 namespace InitialPrefabs.Tests.Attributes {
 
     public class MsgAttributeGUITests {
@@ -20,15 +15,15 @@ namespace InitialPrefabs.Tests.Attributes {
 
         [SetUp]
         public void SetUp() {
-            testObject = new GameObject("[Test Object]");
-            example = testObject.AddComponent<MsgExample>();
-            IsNotNull(example, "No MonoBehaviourExample was attached the gameObject!");
+            testObject       = new GameObject("[Test Object]");
+            example          = testObject.AddComponent<MsgExample>();
+            Assert.IsNotNull(example, "No MonoBehaviourExample was attached the gameObject!");
             serializedObject = new SerializedObject(example);
-            stdMsgAttr = new MsgAttribute("Test");
+            stdMsgAttr       = new MsgAttribute("Test");
         }
 
         [TearDown]
-        public void TearDown() => DestroyImmediate(testObject);
+        public void TearDown() => Object.DestroyImmediate(testObject);
 
         /// <summary>
         /// Ensures that a standard msg attribute has exactly the height given on the inspector.
@@ -37,9 +32,10 @@ namespace InitialPrefabs.Tests.Attributes {
         public void StandardMsgAttributeGUIHeightTest() {
             var intMsgProp = serializedObject.FindProperty("defaultMsg");
 
-            IsNotNull(intMsgProp, $"{testObject.name} does not have an intMsg field!");
-            var currentHeight = GetPropertyHeight(intMsgProp);
-            AreEqual(stdMsgAttr.height * singleLineHeight, GetPropertyHeight(intMsgProp), "Height mismatch!");
+            Assert.IsNotNull(intMsgProp, $"{testObject.name} does not have an intMsg field!");
+            var currentHeight = EditorGUI.GetPropertyHeight(intMsgProp);
+            Assert.AreEqual(stdMsgAttr.height * EditorGUIUtility.singleLineHeight, EditorGUI.GetPropertyHeight(intMsgProp),
+                "Height mismatch!");
         }
 
         /// <summary>
@@ -48,10 +44,11 @@ namespace InitialPrefabs.Tests.Attributes {
         [Test]
         public void CustomMsgAttributeGUIHeightTest() {
             var charMsgProp = serializedObject.FindProperty("customMsgHeight");
-            IsNotNull(charMsgProp, $"{testObject.name} does not have an charMsg field!");
+            Assert.IsNotNull(charMsgProp, $"{testObject.name} does not have an charMsg field!");
 
-            var currentHeight = GetPropertyHeight(charMsgProp);
-            Greater(currentHeight, stdMsgAttr.height * singleLineHeight, "Height is smaller than the standard height!");
+            var currentHeight = EditorGUI.GetPropertyHeight(charMsgProp);
+            Assert.Greater(currentHeight, stdMsgAttr.height * EditorGUIUtility.singleLineHeight,
+                "Height is smaller than the standard height!");
         }
     }
 }
