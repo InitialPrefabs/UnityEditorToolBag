@@ -14,17 +14,17 @@ namespace InitialPrefabs.Tests.Attributes {
     public class MsgAttributeGUITests {
 
         private GameObject testObject;
-        private MonoBehaviourExample example;
+        private MsgExample example;
         private MsgAttribute stdMsgAttr;
         private SerializedObject serializedObject;
 
         [SetUp]
         public void SetUp() {
-            testObject       = new GameObject("[Test Object]");
-            example          = testObject.AddComponent<MonoBehaviourExample>();
+            testObject = new GameObject("[Test Object]");
+            example = testObject.AddComponent<MsgExample>();
             IsNotNull(example, "No MonoBehaviourExample was attached the gameObject!");
             serializedObject = new SerializedObject(example);
-            stdMsgAttr       = new MsgAttribute("Test");
+            stdMsgAttr = new MsgAttribute("Test");
         }
 
         [TearDown]

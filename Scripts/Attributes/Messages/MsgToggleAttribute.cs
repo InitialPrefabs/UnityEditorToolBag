@@ -7,8 +7,12 @@
 
         public bool isInverted;
 
+        public MsgToggleAttribute() : base() { }
+
+        public MsgToggleAttribute(string message) : base(message) { }
+
         public MsgToggleAttribute(string message, MessageLevel messageLevel) : base(message) {
-            this.messageLevel = (int)messageLevel;
+            this.messageLevel = messageLevel;
         }
 
         public MsgToggleAttribute(string message, int height) : base(message) {
@@ -16,7 +20,7 @@
         }
 
         public MsgToggleAttribute(string message, int height, MessageLevel messageLevel) : base(message, height) {
-            this.messageLevel = (int)messageLevel;
+            this.messageLevel = messageLevel;
         }
 
         public MsgToggleAttribute(string message, bool isInverted) : base(message) {
@@ -25,7 +29,7 @@
 
         public MsgToggleAttribute(string message, bool isInverted, MessageLevel messageLevel) : 
             this(message, isInverted) {
-            this.messageLevel = (int)messageLevel;
+            this.messageLevel = messageLevel;
         }
 
         public MsgToggleAttribute(string message, int height, bool isInverted) : base(message, height) {
@@ -34,7 +38,7 @@
 
         public MsgToggleAttribute(string message, int height, bool isInverted, MessageLevel messageLevel) : 
             this(message, height, isInverted) {
-            this.messageLevel = (int)messageLevel;
+            this.messageLevel = messageLevel;
         }
     }
 }
