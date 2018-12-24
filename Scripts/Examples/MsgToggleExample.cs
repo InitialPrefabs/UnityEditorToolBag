@@ -4,7 +4,8 @@ using UnityEngine;
 namespace InitialPrefabs.Examples {
 
     /// <summary>
-    /// Shows some examples of using the MsgToggle.
+    /// Shows some examples of using the MsgToggle. You should not modify the variable names directly as 
+    /// they are being used for GUI Tests.
     /// </summary>
     public class MsgToggleExample : MonoBehaviour {
 

@@ -2,7 +2,11 @@ using InitialPrefabs.Attributes.Messages;
 using UnityEngine;
 
 namespace InitialPrefabs.Examples {
-
+    
+    /// <summary>
+    /// Shows examples of the Msg attribute. You should not modify the variable names directly
+    /// because they are currently being used for GUI tests.
+    /// </summary>
     public class MsgExample : MonoBehaviour {
 
         [Msg("I'm an integer field, with default settings!")]
