@@ -8,7 +8,13 @@ namespace InitialPrefabs.Attributes.Messages {
     public class MsgAttribute : PropertyAttribute {
 
         public string message;
-        public int height, messageLevel;
+        public int height;
+        public MessageLevel messageLevel;
+
+        public MsgAttribute() {
+            height       = 3;
+            messageLevel = 0;
+        }
 
         public MsgAttribute(string message) {
             this.message = message;
@@ -21,7 +27,7 @@ namespace InitialPrefabs.Attributes.Messages {
         }
 
         public MsgAttribute(string message, MessageLevel messageLevel) : this(message) {
-            this.messageLevel = (int)messageLevel;
+            this.messageLevel = messageLevel;
         }
         
         public MsgAttribute(string message, MessageLevel messageLevel, int height) : this(message, messageLevel) {

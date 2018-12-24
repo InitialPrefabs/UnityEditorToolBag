@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace InitialPrefabs.Examples {
 
-    public class MonoBehaviourExample : MonoBehaviour {
+    public class MsgExample : MonoBehaviour {
 
         [Msg("I'm an integer field, with default settings!")]
         public int defaultMsg;
