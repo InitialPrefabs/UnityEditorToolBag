@@ -2,28 +2,19 @@
 using InitialPrefabs.Examples;
 using NUnit.Framework;
 using UnityEditor;
-using UnityEngine;
 
 namespace InitialPrefabs.Tests.Attributes {
 
-    public class MsgAttributeGUITests {
+    public class MsgAttributeGUITests : BaseAttributeGUITests {
 
-        private GameObject testObject;
         private MsgExample example;
         private MsgAttribute stdMsgAttr;
-        private SerializedObject serializedObject;
 
         [SetUp]
-        public void SetUp() {
-            testObject       = new GameObject("[Test Object]");
-            example          = testObject.AddComponent<MsgExample>();
-            Assert.IsNotNull(example, "No MonoBehaviourExample was attached the gameObject!");
-            serializedObject = new SerializedObject(example);
-            stdMsgAttr       = new MsgAttribute("Test");
+        public override void SetUp() {
+            AssignTestObject<MsgExample>();
+            stdMsgAttr = new MsgAttribute("Test");
         }
-
-        [TearDown]
-        public void TearDown() => Object.DestroyImmediate(testObject);
 
         /// <summary>
         /// Ensures that a standard msg attribute has exactly the height given on the inspector.
@@ -32,7 +23,6 @@ namespace InitialPrefabs.Tests.Attributes {
         public void StandardMsgAttributeGUIHeightTest() {
             var intMsgProp = serializedObject.FindProperty("defaultMsg");
 
-            Assert.IsNotNull(intMsgProp, $"{testObject.name} does not have an intMsg field!");
             var currentHeight = EditorGUI.GetPropertyHeight(intMsgProp);
             Assert.AreEqual(stdMsgAttr.height * EditorGUIUtility.singleLineHeight, EditorGUI.GetPropertyHeight(intMsgProp),
                 "Height mismatch!");
