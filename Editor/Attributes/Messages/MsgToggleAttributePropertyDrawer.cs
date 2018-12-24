@@ -24,7 +24,7 @@ namespace InitialPrefabs.Editor.Attributes.Messages {
                 }
             } else {
                 EditorGUI.HelpBox(msgRect, $"{fieldInfo.Name} is not a bool type, is it a {fieldInfo.FieldType}!", 
-                        MessageType.Error);
+                    MessageType.Error);
             }
         }
 
