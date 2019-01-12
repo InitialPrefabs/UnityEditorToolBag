@@ -6,13 +6,13 @@ namespace InitialPrefabs.Tests.Attributes {
 
     public class ProgressBarAttributeGUITests : BaseAttributeGUITests {
 
-        private ProgressBarAttribute progressBar;
+        private FixedProgressBarAttribute fixedProgressBar;
         private const string DefaultField = "defaultFloat";
 
         [SetUp]
         public override void SetUp() {
-            AssignTestObject<ProgressBarExample>();
-            progressBar = new ProgressBarAttribute();
+            AssignTestObject<FixedProgressbarExample>();
+            fixedProgressBar = new FixedProgressBarAttribute();
         }
 
         [Test]

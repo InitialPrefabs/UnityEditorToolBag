@@ -5,24 +5,24 @@ namespace InitialPrefabs.Attributes {
     /// <summary>
     /// Stores a max value for the progress bar.
     /// </summary>
-    public class ProgressBarAttribute : PropertyAttribute {
+    public class FixedProgressBarAttribute : PropertyAttribute {
         
         public float max;
         public string label;
 
-        public ProgressBarAttribute() {
-            max   = 100f;
+        public FixedProgressBarAttribute() {
+            max = 100f;
         }
 
-        public ProgressBarAttribute(string label) : this() {
+        public FixedProgressBarAttribute(string label) : this() {
             this.label = label;
         }
 
-        public ProgressBarAttribute(float max) : this() { 
+        public FixedProgressBarAttribute(float max) : this() { 
             this.max = max;
         }
 
-        public ProgressBarAttribute(float max, string label) : this(max) {
+        public FixedProgressBarAttribute(float max, string label) : this(max) {
             this.label = label;
         }
     }

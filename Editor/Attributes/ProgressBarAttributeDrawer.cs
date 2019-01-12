@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace InitialPrefabs.Editor.Attributes {
 
-    [CustomPropertyDrawer(typeof(ProgressBarAttribute))]
+    [CustomPropertyDrawer(typeof(FixedProgressBarAttribute))]
     public class ProgressBarAttributeDrawer : BasePropertyDrawer {
 
         protected override void OnInspectorAttribute(Rect rect, SerializedProperty prop, GUIContent label) {
-            var progressBar = attribute as ProgressBarAttribute;
+            var progressBar = attribute as FixedProgressBarAttribute;
 
             if (IsTypeNumeric(prop)) {
                 var singleLineHeight = rect.height / 2;
@@ -27,7 +27,7 @@ namespace InitialPrefabs.Editor.Attributes {
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            var progressBar = attribute as ProgressBarAttribute;
+            var progressBar = attribute as FixedProgressBarAttribute;
             var height = EditorGUI.GetPropertyHeight(property);
 
             if (IsTypeNumeric(property)) {
@@ -40,7 +40,7 @@ namespace InitialPrefabs.Editor.Attributes {
             prop.propertyType == SerializedPropertyType.Integer || prop.propertyType == SerializedPropertyType.Float;
 
         private void DrawProgressBar(Rect r, SerializedProperty prop) {
-            var progressBar = attribute as ProgressBarAttribute;
+            var progressBar = attribute as FixedProgressBarAttribute;
             switch (prop.propertyType) {
                 case SerializedPropertyType.Integer:
                     EditorGUI.ProgressBar(r, prop.intValue / progressBar.max, 
@@ -57,7 +57,7 @@ namespace InitialPrefabs.Editor.Attributes {
         }
 
         private void ClampNumericValue(SerializedProperty prop) {
-            var progressBar = attribute as ProgressBarAttribute;
+            var progressBar = attribute as FixedProgressBarAttribute;
             switch (prop.propertyType) {
                 case SerializedPropertyType.Integer:
                     prop.intValue = Mathf.Clamp(prop.intValue, 0, (int)progressBar.max);
