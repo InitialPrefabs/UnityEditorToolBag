@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace InitialPrefabs.Tests.Attributes {
 
-    public class ProgressBarAttributeGUITests : BaseAttributeGUITests {
+    public class FixedProgressBarAttributeGUITests : BaseAttributeGUITests {
 
         private FixedProgressBarAttribute fixedProgressBar;
         private const string DefaultField = "defaultFloat";

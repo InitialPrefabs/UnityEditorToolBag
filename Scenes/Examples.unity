@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bce8e79659584090bb79c4c6aaac0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMsg: 0
-  customMsg: 0
-  customMsgHeight: 0
+  defaultMsg: 143
+  customMsg: 4.11
+  customMsgHeight: 67
 --- !u!4 &728204152
 Transform:
   m_ObjectHideFlags: 0

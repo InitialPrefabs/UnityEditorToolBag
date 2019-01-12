@@ -5,11 +5,9 @@ using UnityEngine;
 namespace InitialPrefabs.Editor.Attributes {
 
     [CustomPropertyDrawer(typeof(FixedProgressBarAttribute))]
-    public class ProgressBarAttributeDrawer : BasePropertyDrawer {
+    public class FixedProgressBarAttributeDrawer : BasePropertyDrawer {
 
         protected override void OnInspectorAttribute(Rect rect, SerializedProperty prop, GUIContent label) {
-            var progressBar = attribute as FixedProgressBarAttribute;
-
             if (IsTypeNumeric(prop)) {
                 var singleLineHeight = rect.height / 2;
                 var propRect = new Rect(rect.x, rect.y, rect.width, singleLineHeight);
@@ -27,7 +25,6 @@ namespace InitialPrefabs.Editor.Attributes {
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            var progressBar = attribute as FixedProgressBarAttribute;
             var height = EditorGUI.GetPropertyHeight(property);
 
             if (IsTypeNumeric(property)) {
