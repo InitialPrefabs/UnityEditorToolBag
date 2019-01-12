@@ -2,6 +2,14 @@
 using UnityEngine;
 
 namespace InitialPrefabs.Examples {
+    
+    [System.Serializable]
+    public struct Health {
+
+        [DynamicProgressBar("max", "Health")]
+        public int current;
+        public int max;
+    }
 
     public class DynamicProgressBarExample : MonoBehaviour {
 
@@ -10,5 +18,8 @@ namespace InitialPrefabs.Examples {
 
         [DynamicProgressBar("floatMax", "Float Value")]
         public float floatProgress;
+
+        // TODO: Re-enable this
+        // public Health health;
     }
 }

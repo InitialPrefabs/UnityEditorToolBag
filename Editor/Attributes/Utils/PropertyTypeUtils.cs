@@ -23,6 +23,7 @@ namespace InitialPrefabs.Editor.Attributes.Utils {
             type == SerializedPropertyType.Integer || type == SerializedPropertyType.Float;
 
         public static SerializedProperty GetSerializedProperty(SerializedProperty prop, string propName) {
+            // TODO: Determine if there is a serialized object/struct that encapsulates the min max fields.
             var origin       = prop.serializedObject;
             var fullPropPath = prop.propertyPath;
             return origin.FindProperty(propName);
