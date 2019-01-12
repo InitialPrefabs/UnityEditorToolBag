@@ -12,6 +12,7 @@ namespace InitialPrefabs.Attributes {
 
         public FixedProgressBarAttribute() {
             max = 100f;
+            label = "Ratio";
         }
 
         public FixedProgressBarAttribute(string label) : this() {

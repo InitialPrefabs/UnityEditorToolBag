@@ -1,14 +1,15 @@
 ﻿using InitialPrefabs.Attributes;
+using InitialPrefabs.Editor.Attributes.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace InitialPrefabs.Editor.Attributes {
+namespace InitialPrefabs.Editor.Attributes.ProgressBar {
 
     [CustomPropertyDrawer(typeof(FixedProgressBarAttribute))]
     public class FixedProgressBarAttributeDrawer : BasePropertyDrawer {
 
         protected override void OnInspectorAttribute(Rect rect, SerializedProperty prop, GUIContent label) {
-            if (IsTypeNumeric(prop)) {
+            if (PropertyTypeUtils.IsPropertyTypeNumeric(prop.propertyType)) {
                 var singleLineHeight = rect.height / 2;
                 var propRect = new Rect(rect.x, rect.y, rect.width, singleLineHeight);
 
@@ -26,15 +27,8 @@ namespace InitialPrefabs.Editor.Attributes {
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
             var height = EditorGUI.GetPropertyHeight(property);
-
-            if (IsTypeNumeric(property)) {
-                return height * 2;
-            }
-            return height;
+            return PropertyTypeUtils.IsPropertyTypeNumeric(property.propertyType) ? height * 2 : height;
         }
-
-        private bool IsTypeNumeric(SerializedProperty prop) =>
-            prop.propertyType == SerializedPropertyType.Integer || prop.propertyType == SerializedPropertyType.Float;
 
         private void DrawProgressBar(Rect r, SerializedProperty prop) {
             var progressBar = attribute as FixedProgressBarAttribute;
