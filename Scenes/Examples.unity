@@ -238,8 +238,8 @@ MonoBehaviour:
   floatMax: 20
   floatProgress: 10
   health:
-    max: 61
-    current: 48
+    max: 200
+    current: 50
 --- !u!114 &1453089266
 MonoBehaviour:
   m_ObjectHideFlags: 0

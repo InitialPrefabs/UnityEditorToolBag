@@ -9,7 +9,7 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
     public class DynamicProgressBarAttributeDrawer : BasePropertyDrawer {
 
         protected override void OnInspectorAttribute(Rect rect, SerializedProperty prop, GUIContent label) {
-            if (PropertyTypeUtils.IsPropertyTypeNumeric(prop.propertyType)) {
+            if (PropertyUtils.IsPropertyTypeNumeric(prop.propertyType)) {
                 var singleLineHeight = rect.height / 2;
                 var propRect         = new Rect(rect.x, rect.y, rect.width, singleLineHeight);
 
@@ -26,7 +26,7 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
 
         public override float GetPropertyHeight(SerializedProperty prop, GUIContent label) {
             var height = EditorGUI.GetPropertyHeight(prop);
-            return PropertyTypeUtils.IsPropertyTypeNumeric(prop.propertyType) ? height * 2 : height;
+            return PropertyUtils.IsPropertyTypeNumeric(prop.propertyType) ? height * 2 : height;
         }
 
         private void DrawProgressBar(Rect r, SerializedProperty prop) {
@@ -34,12 +34,12 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
             SerializedProperty max;
             switch (prop.propertyType) {
                 case SerializedPropertyType.Integer:
-                    max = PropertyTypeUtils.GetSerializedProperty(prop, progressBar.maxProperty);
+                    max = PropertyUtils.GetSerializedProperty(prop, progressBar.maxProperty);
                     EditorGUI.ProgressBar(r, (float)prop.intValue / max.intValue, $"{progressBar.label}: {prop.intValue} / " +
                             $"{max.intValue}");
                     return;
                 case SerializedPropertyType.Float:
-                    max = PropertyTypeUtils.GetSerializedProperty(prop, progressBar.maxProperty);
+                    max = PropertyUtils.GetSerializedProperty(prop, progressBar.maxProperty);
                     EditorGUI.ProgressBar(r, prop.floatValue / max.floatValue, $"{progressBar.label}: {prop.floatValue} / " +
                             $"{max.floatValue}");
                     return;

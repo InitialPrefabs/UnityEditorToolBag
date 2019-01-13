@@ -9,7 +9,7 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
     public class FixedProgressBarAttributeDrawer : BasePropertyDrawer {
 
         protected override void OnInspectorAttribute(Rect rect, SerializedProperty prop, GUIContent label) {
-            if (PropertyTypeUtils.IsPropertyTypeNumeric(prop.propertyType)) {
+            if (PropertyUtils.IsPropertyTypeNumeric(prop.propertyType)) {
                 var singleLineHeight = rect.height / 2;
                 var propRect = new Rect(rect.x, rect.y, rect.width, singleLineHeight);
 
@@ -27,7 +27,7 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
             var height = EditorGUI.GetPropertyHeight(property);
-            return PropertyTypeUtils.IsPropertyTypeNumeric(property.propertyType) ? height * 2 : height;
+            return PropertyUtils.IsPropertyTypeNumeric(property.propertyType) ? height * 2 : height;
         }
 
         private void DrawProgressBar(Rect r, SerializedProperty prop) {

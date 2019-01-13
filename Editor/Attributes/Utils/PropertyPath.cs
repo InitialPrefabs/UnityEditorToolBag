@@ -1,9 +1,8 @@
 ﻿using UnityEditor;
-using UnityEngine;
 
 namespace InitialPrefabs.Editor.Attributes.Utils {
 
-    public static class PropertyTypeUtils {
+    public static class PropertyUtils {
 
         /// <summary>
         /// A utility function to help short hand that a property is a particular type.
@@ -23,28 +22,16 @@ namespace InitialPrefabs.Editor.Attributes.Utils {
             type == SerializedPropertyType.Integer || type == SerializedPropertyType.Float;
 
         public static SerializedProperty GetSerializedProperty(SerializedProperty prop, string propName) {
-            // TODO: Determine if there is a serialized object/struct that encapsulates the min max fields.
-            var origin = prop.serializedObject;
-            var paths  = prop.propertyPath.Split('.');
+            var origin    = prop.serializedObject;
+            var path      = prop.propertyPath;
+            var lastIndex = path.LastIndexOf(".");
 
-            if (paths.Length > 1) {
-
-                var generatedPath = new string[paths.Length + paths.Length - 1];
-
-                for (int i = 0, j = 0; i < paths.Length - 1; i++) {
-                    generatedPath[j] = paths[i];
-                    generatedPath[j + 1] = ".";
-                    j+=2;
-                }
-
-                generatedPath[generatedPath.Length - 2] = ".";
-                generatedPath[generatedPath.Length - 1] = propName;
-
-                var absolutePath = string.Concat(generatedPath);
-                return origin.FindProperty(absolutePath);
-            } else {
-                return origin.FindProperty(propName);
+            if (lastIndex > -1) {
+                var parentPath = path.Substring(0, lastIndex + 1);
+                var generatedPath = $"{parentPath}{propName}";
+                return origin.FindProperty(generatedPath);
             }
+            return origin.FindProperty(propName);
         }
     }
 }
