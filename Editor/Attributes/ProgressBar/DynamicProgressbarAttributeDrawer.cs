@@ -35,7 +35,7 @@ namespace InitialPrefabs.Editor.Attributes.ProgressBar {
             switch (prop.propertyType) {
                 case SerializedPropertyType.Integer:
                     max = PropertyTypeUtils.GetSerializedProperty(prop, progressBar.maxProperty);
-                    EditorGUI.ProgressBar(r, prop.floatValue / max.intValue, $"{progressBar.label}: {prop.intValue} / " +
+                    EditorGUI.ProgressBar(r, (float)prop.intValue / max.intValue, $"{progressBar.label}: {prop.intValue} / " +
                             $"{max.intValue}");
                     return;
                 case SerializedPropertyType.Float:
