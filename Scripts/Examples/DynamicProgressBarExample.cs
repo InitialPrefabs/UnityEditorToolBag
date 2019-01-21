@@ -13,13 +13,14 @@ namespace InitialPrefabs.Examples {
 
     public class DynamicProgressBarExample : MonoBehaviour {
 
+        // NOTE: This also serves as the default field!
         [Tooltip("This is used for defining the max value of the progress bar.")]
         public float floatMax;
 
+        // The string must match the variable in the same class.
         [DynamicProgressBar("floatMax", "Float Value")]
         public float floatProgress;
 
-        // TODO: Re-enable this
         public Health health;
     }
 }
