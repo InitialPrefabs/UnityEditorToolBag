@@ -1,0 +1,8 @@
+{
+  "name":        "com.initialprefabs.unity-editor-toolbag",
+  "author":      "Porrith Suong / initialPrefabs",
+  "displayName": "Unity Editor Toolbag",
+  "version":     "2019.9.0",
+  "unity":       "2019.2",
+  "description": "Adds small attributes to enhance the inspector for a more human readable format"
+}
