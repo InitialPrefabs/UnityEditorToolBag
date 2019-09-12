@@ -1,9 +1,8 @@
 {
     "name": "InitialPrefabs.Editor",
     "references": [
-        "InitialPrefabs.Attributes"
+        "GUID:2cd019ec8c0c7418b898b75e458f1511"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -12,5 +11,6 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": []
 }
